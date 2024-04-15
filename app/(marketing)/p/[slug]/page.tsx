@@ -1,12 +1,13 @@
 import db from '@/lib/db'
+import { Minus, Plus } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 import { formatCurrency } from '@/lib/formatters'
 import { GetColorName } from 'hex-color-to-color-name'
 import type { Category, Discount, Product, Variant } from '@prisma/client'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { Minus, Plus } from 'lucide-react'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
     const product = await getProductBySlug(params.slug)
@@ -30,90 +31,13 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
 
     return (
         <div className="py-8">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 md:gap-8 lg:gap-12">
                 <div className="col-span-1">
                     <div className="flex flex-col space-y-4">
-                        <img
-                            alt="Featured product"
-                            className="w-full"
-                            height="500"
-                            src="/placeholder.svg"
-                            style={{
-                                aspectRatio: '300/500',
-                                objectFit: 'cover',
-                            }}
-                            width="300"
-                        />
-                        <div className="grid grid-cols-3 gap-2">
-                            <img
-                                alt="Product thumbnail"
-                                className="w-full"
-                                height="100"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: '60/100',
-                                    objectFit: 'cover',
-                                }}
-                                width="60"
-                            />
-                            <img
-                                alt="Product thumbnail"
-                                className="w-full"
-                                height="100"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: '60/100',
-                                    objectFit: 'cover',
-                                }}
-                                width="60"
-                            />
-                            <img
-                                alt="Product thumbnail"
-                                className="w-full"
-                                height="100"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: '60/100',
-                                    objectFit: 'cover',
-                                }}
-                                width="60"
-                            />
-                            <img
-                                alt="Product thumbnail"
-                                className="w-full"
-                                height="100"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: '60/100',
-                                    objectFit: 'cover',
-                                }}
-                                width="60"
-                            />
-                            <img
-                                alt="Product thumbnail"
-                                className="w-full"
-                                height="100"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: '60/100',
-                                    objectFit: 'cover',
-                                }}
-                                width="60"
-                            />
-                            <img
-                                alt="Product thumbnail"
-                                className="w-full"
-                                height="100"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: '60/100',
-                                    objectFit: 'cover',
-                                }}
-                                width="60"
-                            />
-                        </div>
+                        <Image alt="Featured product" className="w-full" height={500} width={300} src="/placeholder.svg" style={{ aspectRatio: '300/500', objectFit: 'cover' }} />
                     </div>
                 </div>
+
                 <div className="col-span-2">
                     {/* Title */}
                     <h1 className="text-2xl font-bold">{product.name}</h1>
@@ -180,7 +104,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
             </div>
 
             {/* Other section */}
-            <div className="mt-8">
+            {/* <div className="mt-8">
                 <h2 className="text-xl font-bold">SIMILAR ITEMS</h2>
                 <div className="grid grid-cols-4 gap-4">
                     <img
@@ -228,7 +152,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
                         width="200"
                     />
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
