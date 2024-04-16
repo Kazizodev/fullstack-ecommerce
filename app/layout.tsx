@@ -16,7 +16,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
                     <SessionProvider>{children}</SessionProvider>
                     <Toaster richColors />
                     <NextProgress />
