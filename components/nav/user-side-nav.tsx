@@ -16,7 +16,7 @@ const UserSideNav = () => {
                         <Link
                             href={nav.href}
                             className={cn(
-                                nav.href !== '/d' ? pathname.includes(nav.href) && 'text-primary' : pathname === nav.href && 'font-medium text-primary',
+                                nav.href !== '/d' ? pathname.includes(nav.href) && 'font-medium text-primary' : pathname === nav.href && 'font-medium text-primary',
                                 'hover:font-medium hover:text-primary'
                             )}>
                             {nav.name}

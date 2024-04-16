@@ -25,8 +25,8 @@ const LoginForm = () => {
             if (login?.status !== 200) throw new Error('Invalid email or password')
 
             toast.success('Welcome back!')
-            router.refresh()
             router.push('/')
+            router.refresh()
         } catch (error) {
             toast.error('Invalid email or password')
         } finally {

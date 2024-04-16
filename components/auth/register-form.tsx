@@ -1,15 +1,15 @@
 'use client'
 import Link from 'next/link'
+import { toast } from 'sonner'
 import { Loader2 } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { useRouter } from 'next13-progressbar'
 import { Button } from '@/components/ui/button'
+import { useAction } from 'next-safe-action/hooks'
 import { registerSchema } from '@/lib/schemas/auth'
 import { z, zodResolver, useForm } from '@/lib/zod'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form'
-import { useAction } from 'next-safe-action/hooks'
 import { safeRegister } from '@/app/(auth)/_actions/auth'
-import { toast } from 'sonner'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form'
 
 const RegisterForm = () => {
     const router = useRouter()
